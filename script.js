@@ -321,4 +321,65 @@ continueBtn.addEventListener("click",()=>{
     showPage(page2);
 
 });
+// =====================================
+// STEP 6.3 - PAGE NAVIGATION
+// =====================================
+
+// Buttons
+const page2Next = document.querySelector("#page2 button");
+const page3Next = document.querySelector("#page3 button");
+const page4Submit = document.querySelector("#page4 button");
+const visitAgainBtn = document.querySelector("#page5 button");
+
+// Opinion Box
+const opinionBox = document.querySelector("#page4 textarea");
+
+// ---------------------------
+// PAGE 2 → PAGE 3
+// ---------------------------
+
+page2Next.addEventListener("click", () => {
+
+    showPage(page3);
+
+});
+
+// ---------------------------
+// PAGE 3 → PAGE 4
+// ---------------------------
+
+page3Next.addEventListener("click", () => {
+
+    showPage(page4);
+
+});
+
+// ---------------------------
+// PAGE 4 → PAGE 5
+// ---------------------------
+
+page4Submit.addEventListener("click", () => {
+
+    if(opinionBox.value.trim() === ""){
+
+        alert("Please tell us what you like about CORTIS.");
+
+        return;
+
+    }
+
+    showPage(page5);
+
+});
+
+// ---------------------------
+// PAGE 5 → PAGE 1
+// ---------------------------
+
+visitAgainBtn.addEventListener("click", () => {
+
+    restartWebsite();
+
+});
+
 
