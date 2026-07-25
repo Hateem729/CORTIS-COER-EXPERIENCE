@@ -578,3 +578,25 @@ window.onload = () => {
     }, 200);
 
 };
+// ===========================
+// LOADING SCREEN
+// ===========================
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+
+        loader.style.opacity = "0";
+        loader.style.transition = "1s";
+
+        setTimeout(() => {
+
+            loader.style.display = "none";
+
+        },1000);
+
+    },3000);
+
+});
