@@ -381,5 +381,84 @@ visitAgainBtn.addEventListener("click", () => {
     restartWebsite();
 
 });
+// =====================================
+// STEP 6.4 - GALLERY
+// =====================================
 
+const gallery = document.querySelector(".gallery");
 
+// Gallery Images
+
+const galleryImages = [
+
+    "images/group1.jpg",
+    "images/group2.jpg",
+    "images/group3.jpg",
+
+    "images/member1.jpg",
+    "images/member2.jpg",
+    "images/member3.jpg",
+    "images/member4.jpg",
+    "images/member5.jpg"
+
+];
+
+// Create Gallery
+
+galleryImages.forEach(image => {
+
+    const img = document.createElement("img");
+
+    img.src = image;
+
+    img.alt = "CORTIS";
+
+    img.addEventListener("click", () => {
+
+        openImage(image);
+
+    });
+
+    gallery.appendChild(img);
+
+});
+
+// ==========================
+// OPEN IMAGE
+// ==========================
+
+function openImage(image){
+
+    const popup = document.createElement("div");
+
+    popup.style.position = "fixed";
+    popup.style.top = "0";
+    popup.style.left = "0";
+    popup.style.width = "100%";
+    popup.style.height = "100%";
+    popup.style.background = "rgba(0,0,0,0.9)";
+    popup.style.display = "flex";
+    popup.style.justifyContent = "center";
+    popup.style.alignItems = "center";
+    popup.style.zIndex = "9999";
+
+    const bigImage = document.createElement("img");
+
+    bigImage.src = image;
+
+    bigImage.style.maxWidth = "90%";
+    bigImage.style.maxHeight = "90%";
+    bigImage.style.borderRadius = "20px";
+    bigImage.style.boxShadow = "0 0 35px red";
+
+    popup.appendChild(bigImage);
+
+    popup.addEventListener("click", () => {
+
+        popup.remove();
+
+    });
+
+    document.body.appendChild(popup);
+
+}
