@@ -278,3 +278,24 @@ textarea{
 }
 
 }
+/* Floating Music Button */
+
+#musicBtn,
+button.music-btn{
+
+    background:#d10000;
+    color:white;
+    border:none;
+    border-radius:50px;
+    padding:12px 20px;
+    cursor:pointer;
+    box-shadow:0 0 15px red;
+
+}
+
+#musicBtn:hover,
+button.music-btn:hover{
+
+    background:#ff2a2a;
+
+}
