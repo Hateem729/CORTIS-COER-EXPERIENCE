@@ -462,3 +462,119 @@ function openImage(image){
     document.body.appendChild(popup);
 
 }
+// =====================================
+// STEP 6.5 - FINAL EFFECTS
+// =====================================
+
+// --------------------------
+// Floating Hearts
+// --------------------------
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.innerHTML = "❤";
+
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = window.innerHeight + "px";
+    heart.style.fontSize = (20 + Math.random() * 25) + "px";
+    heart.style.color = "#ff1a1a";
+    heart.style.pointerEvents = "none";
+    heart.style.zIndex = "9999";
+    heart.style.transition = "transform 6s linear, opacity 6s linear";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.style.transform = "translateY(-120vh)";
+        heart.style.opacity = "0";
+    }, 50);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+
+}
+
+// Create a heart every second
+setInterval(createHeart, 1000);
+
+// --------------------------
+// Mouse Glow
+// --------------------------
+
+document.addEventListener("mousemove", (e) => {
+
+    const glow = document.createElement("div");
+
+    glow.style.position = "fixed";
+    glow.style.width = "12px";
+    glow.style.height = "12px";
+    glow.style.borderRadius = "50%";
+    glow.style.background = "red";
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+    glow.style.pointerEvents = "none";
+    glow.style.boxShadow = "0 0 20px red";
+    glow.style.opacity = "0.8";
+    glow.style.zIndex = "9999";
+
+    document.body.appendChild(glow);
+
+    setTimeout(() => {
+        glow.remove();
+    }, 300);
+
+});
+
+// --------------------------
+// Music Control
+// --------------------------
+
+const bgMusic = document.getElementById("bgMusic");
+
+const musicBtn = document.createElement("button");
+
+musicBtn.innerHTML = "🎵 Music";
+
+musicBtn.style.position = "fixed";
+musicBtn.style.bottom = "20px";
+musicBtn.style.right = "20px";
+musicBtn.style.zIndex = "9999";
+
+document.body.appendChild(musicBtn);
+
+musicBtn.addEventListener("click", () => {
+
+    if (bgMusic.paused) {
+
+        bgMusic.play();
+        musicBtn.innerHTML = "🎵 Music On";
+
+    } else {
+
+        bgMusic.pause();
+        musicBtn.innerHTML = "🔇 Music Off";
+
+    }
+
+});
+
+// --------------------------
+// Welcome Animation
+// --------------------------
+
+window.onload = () => {
+
+    document.body.style.opacity = "0";
+
+    setTimeout(() => {
+
+        document.body.style.transition = "opacity 1.5s";
+        document.body.style.opacity = "1";
+
+    }, 200);
+
+};
