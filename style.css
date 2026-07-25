@@ -1,1 +1,280 @@
+/* Google Font */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =======================
+   ALL PAGES
+======================= */
+
+section{
+    min-height:100vh;
+    width:100%;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    position:relative;
+    text-align:center;
+    padding:40px;
+}
+
+#page1{
+    display:flex;
+}
+
+/* =======================
+   WELCOME IMAGE
+======================= */
+
+.welcome-image{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    top:0;
+    left:0;
+}
+
+.overlay{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:1100px;
+    background:rgba(0,0,0,.65);
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(6px);
+}
+
+/* =======================
+   TITLES
+======================= */
+
+h1{
+    font-size:60px;
+    color:#ff1e1e;
+    margin-bottom:25px;
+    text-shadow:
+        0 0 15px red,
+        0 0 35px red;
+}
+
+h2{
+    margin-top:25px;
+    color:#ff5757;
+}
+
+p{
+    font-size:20px;
+    margin:15px 0;
+}
+
+/* =======================
+   BUTTONS
+======================= */
+
+button{
+    padding:15px 35px;
+    margin:10px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    background:#c30000;
+    color:white;
+    font-size:18px;
+    transition:.35s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#ff2b2b;
+    box-shadow:0 0 20px red;
+}
+
+/* =======================
+   MEMBER CARDS
+======================= */
+
+.member-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.member-card{
+    background:#141414;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.35s;
+    border:2px solid transparent;
+}
+
+.member-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.member-card h3{
+    padding:15px;
+}
+
+.member-card:hover{
+    transform:translateY(-10px);
+    border-color:#ff2a2a;
+    box-shadow:0 0 25px red;
+}
+
+/* =======================
+   PROFILE PAGE
+======================= */
+
+#profileImage{
+    width:320px;
+    border-radius:25px;
+    margin:30px;
+    box-shadow:0 0 30px red;
+}
+
+#profileInfo{
+    background:#161616;
+    padding:30px;
+    border-radius:20px;
+    max-width:700px;
+    line-height:2;
+}
+
+/* =======================
+   GALLERY
+======================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    width:100%;
+    max-width:1200px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:20px;
+    transition:.4s;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px red;
+}
+
+/* =======================
+   TEXTAREA
+======================= */
+
+textarea{
+    width:80%;
+    max-width:700px;
+    padding:20px;
+    border-radius:20px;
+    border:none;
+    background:#181818;
+    color:white;
+    font-size:18px;
+    resize:none;
+}
+
+/* =======================
+   THANK YOU PAGE
+======================= */
+
+#page5 img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.thanks{
+    background:rgba(0,0,0,.65);
+    padding:45px;
+    border-radius:25px;
+}
+
+.thanks p{
+    font-size:24px;
+    line-height:1.8;
+}
+
+/* =======================
+   ANIMATIONS
+======================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.overlay,
+.thanks,
+#profileInfo{
+    animation:fadeUp 1s ease;
+}
+
+/* =======================
+   MOBILE
+======================= */
+
+@media(max-width:768px){
+
+h1{
+    font-size:38px;
+}
+
+p{
+    font-size:18px;
+}
+
+button{
+    width:90%;
+}
+
+.member-card img{
+    height:180px;
+}
+
+#profileImage{
+    width:250px;
+}
+
+textarea{
+    width:95%;
+}
+
+}
