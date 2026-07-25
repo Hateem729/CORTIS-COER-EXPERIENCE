@@ -157,4 +157,168 @@ function restartWebsite(){
     location.reload();
 
 }
+// =====================================
+// STEP 6.2 - USER INTERACTION
+// =====================================
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const questions = document.getElementById("questions");
+
+const biasGrid = document.getElementById("biasGrid");
+const wreckerGrid = document.getElementById("wreckerGrid");
+const attractiveGrid = document.getElementById("attractiveGrid");
+
+const continueBtn = document.getElementById("continueBtn");
+
+// --------------------------
+// YES BUTTON
+// --------------------------
+
+yesBtn.addEventListener("click", () => {
+
+    userAnswers.likesCortis = "Yes";
+
+    questions.style.display = "block";
+
+});
+
+// --------------------------
+// NO BUTTON
+// --------------------------
+
+noBtn.addEventListener("click", () => {
+
+    userAnswers.likesCortis = "No";
+
+    alert("We hope you'll become a CORTIS fan soon! ❤️");
+
+    setTimeout(() => {
+
+        restartWebsite();
+
+    }, 3000);
+
+});
+
+// --------------------------
+// COPY MEMBER CARDS
+// --------------------------
+
+wreckerGrid.innerHTML = biasGrid.innerHTML;
+attractiveGrid.innerHTML = biasGrid.innerHTML;
+
+// --------------------------
+// BIAS SELECTION
+// --------------------------
+
+document.querySelectorAll("#biasGrid .member-card").forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        document.querySelectorAll("#biasGrid .member-card").forEach(c=>{
+
+            c.style.border="2px solid transparent";
+
+        });
+
+        card.style.border="3px solid red";
+
+        userAnswers.bias=card.dataset.member;
+
+    });
+
+});
+
+// --------------------------
+// BIAS WRECKER
+// --------------------------
+
+document.querySelectorAll("#wreckerGrid .member-card").forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        document.querySelectorAll("#wreckerGrid .member-card").forEach(c=>{
+
+            c.style.border="2px solid transparent";
+
+        });
+
+        card.style.border="3px solid red";
+
+        userAnswers.biasWrecker=card.dataset.member;
+
+    });
+
+});
+
+// --------------------------
+// MOST ATTRACTIVE
+// --------------------------
+
+document.querySelectorAll("#attractiveGrid .member-card").forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        document.querySelectorAll("#attractiveGrid .member-card").forEach(c=>{
+
+            c.style.border="2px solid transparent";
+
+        });
+
+        card.style.border="3px solid red";
+
+        userAnswers.attractive=card.dataset.member;
+
+    });
+
+});
+
+// --------------------------
+// SONG SELECTION
+// --------------------------
+
+document.querySelectorAll(".songBtn").forEach(btn=>{
+
+    btn.addEventListener("click",()=>{
+
+        document.querySelectorAll(".songBtn").forEach(b=>{
+
+            b.style.background="#c30000";
+
+        });
+
+        btn.style.background="red";
+
+        userAnswers.favouriteSong=btn.dataset.song;
+
+    });
+
+});
+
+// --------------------------
+// CONTINUE
+// --------------------------
+
+continueBtn.addEventListener("click",()=>{
+
+    if(
+        userAnswers.bias==="" ||
+        userAnswers.biasWrecker==="" ||
+        userAnswers.attractive==="" ||
+        userAnswers.favouriteSong===""
+
+    ){
+
+        alert("Please answer all questions first.");
+
+        return;
+
+    }
+
+    showProfile(userAnswers.bias);
+
+    showPage(page2);
+
+});
 
